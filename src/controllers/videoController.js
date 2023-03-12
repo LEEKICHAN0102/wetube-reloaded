@@ -25,6 +25,7 @@ export const trending = (req, res) => {
       id: 1,
     },
   ];
+  //Videos array export
   return res.render("home", { pageTitle: "Home", videos });
 };
 export const see = (req, res) => res.render("watch", { pageTitle: "Watch" });
