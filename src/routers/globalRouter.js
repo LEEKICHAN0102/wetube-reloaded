@@ -9,3 +9,5 @@ globalRouter.get("/join", join);
 globalRouter.get("/login", login);
 
 export default globalRouter;
+
+//git for every one
