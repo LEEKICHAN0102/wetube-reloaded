@@ -9,8 +9,8 @@ const PORT = 4000;
 const app = express();
 const logger = morgan("dev");
 
-app.set("view engine", "pug");
-app.set("views", process.cwd() + "/src/views");
+app.set("view engine", "pug"); //Our view engine is pug//
+app.set("views", process.cwd() + "/src/views"); //for express find to views//
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use("/", globalRouter);
