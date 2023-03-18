@@ -7,7 +7,7 @@
     "url": "git+https://github.com/LEEKICHAN0102/wetube-reloaded.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "author": "FULLFEET<rlcks01537@gmail.com>",
   "license": "MIT",
