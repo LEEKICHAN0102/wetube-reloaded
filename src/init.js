@@ -1,5 +1,6 @@
 import "./db"; // using mongoose
 import "./models/Video"; // using for my videoSchema
+import "./models/User";
 import app from "./server"; // using my app
 
 const PORT = 4000; // My port
