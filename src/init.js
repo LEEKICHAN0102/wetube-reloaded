@@ -1,3 +1,4 @@
+import "dotenv/config";
 import "./db"; // using mongoose
 import "./models/Video"; // using for my videoSchema
 import "./models/User";
