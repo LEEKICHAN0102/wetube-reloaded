@@ -2,6 +2,7 @@ import express from "express"; //express = require('express')이 기존 문법�
 import session from "express-session";
 import morgan from "morgan"; // for using Middleware
 import { localsMiddleWare } from "./middlewares";
+import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
@@ -19,6 +20,7 @@ app.use(
     secret: "Hello",
     resave: true,
     saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/wetube" }),
   })
 );
 
