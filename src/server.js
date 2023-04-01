@@ -25,6 +25,7 @@ app.use(
 );
 
 app.use(localsMiddleWare);
+app.use("/uploads", express.static("uploads"));
 app.use("/", rootRouter); // Router는 url이 어떻게 시작하는지에 대해 나누는 방법, 너무 어렵게 생각 말자..
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
