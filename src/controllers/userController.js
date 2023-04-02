@@ -205,14 +205,13 @@ export const see = async (req, res) => {
   //user session에서 _id를 가져오는것이 아닌
   //url(req.params) 에서 _id를 받아온다. 모든 유저가 볼 수 있어야하기에...
   const { id } = req.params;
-  const user = await User.findById(id);
+  const user = await User.findById(id).populate("videos");
+  console.log(user);
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User not found..." });
   }
-  const videos = await Video.find({ owner: user._id });
   return res.render("users/profile", {
     pageTitle: user.name,
     user,
-    videos,
   });
 };
