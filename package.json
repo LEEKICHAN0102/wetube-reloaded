@@ -7,7 +7,8 @@
     "url": "git+https://github.com/LEEKICHAN0102/wetube-reloaded.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
+    "dev": "nodemon --exec babel-node src/init.js",
+    "assets": "webpack --config webpack.config.js"
   },
   "author": "FULLFEET<rlcks01537@gmail.com>",
   "license": "MIT",
@@ -30,6 +31,9 @@
     "@babel/core": "^7.21.0",
     "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
-    "nodemon": "^2.0.21"
+    "babel-loader": "^9.1.2",
+    "nodemon": "^2.0.21",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1"
   }
 }
