@@ -1,3 +1,8 @@
+//config
+
+@import "./config/_reset.scss";
+@import "./config/_variable.scss";
+
 // Components
 
 @import "./components/header.scss";
@@ -16,6 +21,8 @@
 // Defaults
 a {
   color: inherit;
+}
+body {
   background-color: $bg;
   color: white;
 }
