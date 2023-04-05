@@ -1,8 +1,6 @@
 import User from "../models/User";
-import Video from "../models/Video";
 import bcryptjs from "bcryptjs";
 import bcrypt from "bcryptjs/dist/bcrypt";
-import { application } from "express";
 
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
