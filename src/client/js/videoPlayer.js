@@ -4,6 +4,10 @@ const muteBtn = document.getElementById("mute");
 const volumeRange = document.getElementById("volume");
 const currentTime = document.getElementById("currentTime");
 const totalTime = document.getElementById("totalTime");
+const timeLine = document.getElementById("timeline");
+const fullScreenBtn = document.getElementById("fullScreen");
+const videoContainer = document.getElementById("videoContainer");
+const videoControls = document.getElementById("videoControls");
 
 let volumeValue = 0.5;
 video.volume = volumeValue;
@@ -44,14 +48,49 @@ const formatData = (seconds) =>
 
 const handleLoadedMetadata = () => {
   totalTime.innerText = formatData(Math.floor(video.duration));
+  timeLine.max = Math.floor(video.duration);
 };
 
 const handleLoadedTimeUpdate = () => {
   currentTime.innerText = formatData(Math.floor(video.currentTime));
+  timeLine.value = Math.floor(video.currentTime);
 };
 
+const handleTimelineChange = (event) => {
+  const {
+    target: { value },
+  } = event;
+  video.currentTime = value;
+};
+
+const handleFullScreen = () => {
+  const fullScreen = document.fullscreenElement;
+  if (fullScreen) {
+    document.exitFullscreen();
+    fullScreenBtn.innerText = "Enter Full Screen";
+  } else {
+    videoContainer.requestFullscreen();
+    fullScreenBtn.innerText = "Exit Full Screen";
+  }
+};
+
+const handleMouseMove = () => {
+  videoControls.classList.add("showing");
+};
+
+const handleMouseLeave = () => {
+  const id = setTimeout(() => {
+    videoControls.classList.remove("showing");
+  }, 3000);
+  console.log(id);
+  clearTimeout(id);
+};
 playBtn.addEventListener("click", handelPlayClick);
 muteBtn.addEventListener("click", handelMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleLoadedTimeUpdate);
+timeLine.addEventListener("input", handleTimelineChange);
+fullScreenBtn.addEventListener("click", handleFullScreen);
+video.addEventListener("mousemove", handleMouseMove);
+video.addEventListener("mouseleave", handleMouseLeave);
